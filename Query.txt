@@ -1,0 +1,211 @@
+--querys:
+-- Usuarios
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
+    clave VARCHAR(200) NOT NULL,
+    tipo VARCHAR(20) NOT NULL   -- 'admin' o 'cliente'
+);
+
+-- Medicamentos
+CREATE TABLE medicamentos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    imagen VARCHAR(300),
+    cantidad INTEGER NOT NULL,
+    precio NUMERIC(10,2) NOT NULL
+);
+
+-- Pedidos
+CREATE TABLE pedidos (
+    id SERIAL PRIMARY KEY,
+    cliente_id INTEGER REFERENCES usuarios(id),
+    fecha TIMESTAMP DEFAULT NOW(),
+    total NUMERIC(10,2)
+);
+
+-- Detalle de pedidos
+CREATE TABLE pedido_detalle (
+    id SERIAL PRIMARY KEY,
+    pedido_id INTEGER REFERENCES pedidos(id),
+    medicamento_id INTEGER REFERENCES medicamentos(id),
+    cantidad INTEGER,
+    subtotal NUMERIC(10,2)
+);
+
+--inserciones
+
+INSERT INTO medicamentos (nombre, imagen, cantidad, precio)
+VALUES
+('Paracetamol', 'imagenes/Paracetamol.png' ,100, 0.50),
+('Ibuprofeno', 'imagenes/Ibuprofeno.png' ,50, 1.20),
+('Amoxicilina', 'imagenes/Amoxicilina.png' ,30, 2.50),
+('Loratadina', 'imagenes/Loratadina.png' ,75, 0.75),
+('Omeprazol', 'imagenes/Omeprazol.png' ,200, 0.60);
+
+--usuarios
+
+INSERT INTO usuarios (usuario, clave, tipo)
+VALUES
+('admin', '123', 'admin'),
+('cliente', '123', 'cliente');
+
+--procedimientos almacenados
+--login
+
+CREATE OR REPLACE FUNCTION login_usuario(p_usuario VARCHAR, p_clave VARCHAR)
+RETURNS TABLE(id INT, usuario VARCHAR, tipo VARCHAR) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT u.id, u.usuario, u.tipo
+    FROM usuarios u
+    WHERE u.usuario = p_usuario AND u.clave = p_clave;
+END;
+$$ LANGUAGE plpgsql;
+
+--registrar cliente
+
+CREATE OR REPLACE FUNCTION registrar_cliente(p_usuario VARCHAR, p_clave VARCHAR)
+RETURNS VOID AS $$
+BEGIN
+    INSERT INTO usuarios(usuario, clave, tipo)
+    VALUES(p_usuario, p_clave, 'cliente');
+END;
+$$ LANGUAGE plpgsql;
+
+--agregar medicamento
+
+CREATE OR REPLACE FUNCTION agregar_medicamento(
+    p_nombre VARCHAR,
+    p_imagen varchar,
+    p_cantidad INT,
+    p_precio NUMERIC
+)
+RETURNS VOID AS $$
+BEGIN
+    INSERT INTO medicamentos(nombre, imagen, cantidad, precio)
+    VALUES(p_nombre, p_imagen, p_cantidad, p_precio);
+END;
+$$ LANGUAGE plpgsql;
+
+--modificar
+
+CREATE OR REPLACE FUNCTION modificar_medicamento(
+    p_id INT,
+    p_nombre VARCHAR,
+    p_imagen varchar,
+    p_cantidad INT,
+    p_precio NUMERIC
+)
+RETURNS VOID AS $$
+BEGIN
+    UPDATE medicamentos
+    SET nombre   = p_nombre,
+        imagen   = p_imagen,
+        cantidad = p_cantidad,
+        precio   = p_precio
+    WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql;
+
+--eliminar medicamento
+
+CREATE OR REPLACE FUNCTION eliminar_medicamento(
+    p_id INT
+)
+RETURNS VOID AS $$
+BEGIN
+    DELETE FROM medicamentos
+    WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+--reabastecer medicamento
+
+CREATE OR REPLACE FUNCTION reabastecer_medicamento(
+    p_id INT,
+    p_cantidad INT
+)
+RETURNS VOID AS $$
+BEGIN
+    UPDATE medicamentos
+    SET cantidad = cantidad + p_cantidad
+    WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql;
+
+--consultar inventario
+
+CREATE OR REPLACE FUNCTION consultar_inventario()
+RETURNS TABLE (
+    id INT,
+    nombre VARCHAR,
+    imagen VARCHAR,
+    cantidad INT,
+    precio NUMERIC
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT m.id, m.nombre, m.imagen, m.cantidad, m.precio
+    FROM medicamentos m
+    ORDER BY m.id;
+END;
+$$ LANGUAGE plpgsql;
+
+--registrar pedido
+
+CREATE OR REPLACE FUNCTION registrar_pedido(
+    p_cliente INT,
+    p_medicamento INT,
+    p_cantidad INT
+)
+RETURNS VOID AS $$
+DECLARE
+    v_precio NUMERIC;
+    v_subtotal NUMERIC;
+BEGIN
+    -- Obtener precio del medicamento
+    SELECT precio
+    INTO v_precio
+    FROM medicamentos
+    WHERE id = p_medicamento;
+
+    -- Calcular subtotal
+    v_subtotal := v_precio * p_cantidad;
+
+    -- Insertar pedido
+    INSERT INTO pedidos(cliente_id, total)
+    VALUES(p_cliente, v_subtotal);
+
+    -- Insertar detalle del pedido
+    INSERT INTO pedido_detalle(pedido_id, medicamento_id, cantidad, subtotal)
+    VALUES(currval('pedidos_id_seq'), p_medicamento, p_cantidad, v_subtotal);
+
+    -- Descontar inventario
+    UPDATE medicamentos
+    SET cantidad = cantidad - p_cantidad
+    WHERE id = p_medicamento;
+END;
+$$ LANGUAGE plpgsql;
+
+--consultar pedido
+
+CREATE OR REPLACE FUNCTION consultar_pedidos()
+RETURNS TABLE (
+    pedido_id INT,
+    cliente Varchar,
+    total NUMERIC,
+    fecha TIMESTAMP
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT p.id,
+           u.usuario AS cliente,
+           p.total,
+           p.fecha
+    FROM pedidos p
+    JOIN usuarios u ON p.cliente_id = u.id
+    ORDER BY p.fecha DESC;
+END;
+$$ LANGUAGE plpgsql;
