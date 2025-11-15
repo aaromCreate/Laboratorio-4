@@ -44,6 +44,7 @@ namespace lab4
                             if (reader.Read())
                             {
                                 string tipo = reader["tipo"].ToString();
+                                int clienteId = Convert.ToInt32(reader["id"]);  
 
                                 MessageBox.Show("Bienvenido " + usuario + "!");
 
@@ -54,8 +55,9 @@ namespace lab4
                                 }
                                 else
                                 {
-                                    Cliente Clie = new Cliente();
-                                    Clie.Show();
+                                    Cliente clienteForm = new Cliente(this);
+                                    clienteForm.Show();
+                                    this.Hide(); // Oculta la ventana Login
                                 }
                             }
                             else

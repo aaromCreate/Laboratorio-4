@@ -4,7 +4,7 @@ using System;
 public class Conexion
 {
     private static string connectionString =
-        "Host=localhost;Port=5432;Username=postgres;Password= USEN SUS CONTRASEÑAS;Database=farmacia_db;";
+        "Host=localhost;Port=5432;Username=postgres;Password= 1234;Database=Laboratorio4";
 
     public static NpgsqlConnection ObtenerConexion()
     {
