@@ -1,4 +1,4 @@
---querys:
+
 -- Usuarios
 CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
@@ -11,7 +11,7 @@ CREATE TABLE usuarios (
 CREATE TABLE medicamentos (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    imagen VARCHAR(300),
+    imagen BYTEA,
     cantidad INTEGER NOT NULL,
     precio NUMERIC(10,2) NOT NULL
 );
@@ -35,13 +35,13 @@ CREATE TABLE pedido_detalle (
 
 --inserciones
 
-INSERT INTO medicamentos (nombre, imagen, cantidad, precio)
+INSERT INTO medicamentos (nombre, cantidad, precio)
 VALUES
-('Paracetamol', 'imagenes/Paracetamol.png' ,100, 0.50),
-('Ibuprofeno', 'imagenes/Ibuprofeno.png' ,50, 1.20),
-('Amoxicilina', 'imagenes/Amoxicilina.png' ,30, 2.50),
-('Loratadina', 'imagenes/Loratadina.png' ,75, 0.75),
-('Omeprazol', 'imagenes/Omeprazol.png' ,200, 0.60);
+('Paracetamol', 100, 0.50),
+('Ibuprofeno', 50, 1.20),
+('Amoxicilina', 30, 2.50),
+('Loratadina', 75, 0.75),
+('Omeprazol', 200, 0.60);
 
 --usuarios
 
@@ -77,7 +77,7 @@ $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION agregar_medicamento(
     p_nombre VARCHAR,
-    p_imagen varchar,
+    p_imagen BYTEA,
     p_cantidad INT,
     p_precio NUMERIC
 )
@@ -93,7 +93,7 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION modificar_medicamento(
     p_id INT,
     p_nombre VARCHAR,
-    p_imagen varchar,
+    p_imagen BYTEA,
     p_cantidad INT,
     p_precio NUMERIC
 )
@@ -141,7 +141,7 @@ CREATE OR REPLACE FUNCTION consultar_inventario()
 RETURNS TABLE (
     id INT,
     nombre VARCHAR,
-    imagen VARCHAR,
+    imagen BYTEA,
     cantidad INT,
     precio NUMERIC
 ) AS $$
@@ -191,21 +191,30 @@ $$ LANGUAGE plpgsql;
 
 --consultar pedido
 
-CREATE OR REPLACE FUNCTION consultar_pedidos()
+CREATE OR REPLACE FUNCTION consultar_detalle_pedidos()
 RETURNS TABLE (
     pedido_id INT,
-    cliente Varchar,
-    total NUMERIC,
-    fecha TIMESTAMP
+    cliente VARCHAR,
+    fecha TIMESTAMP,
+    medicamento VARCHAR,
+    cantidad INT,
+    subtotal NUMERIC
 ) AS $$
 BEGIN
     RETURN QUERY
     SELECT p.id,
            u.usuario AS cliente,
-           p.total,
-           p.fecha
-    FROM pedidos p
+           p.fecha,
+           m.nombre AS medicamento,
+           pd.cantidad,
+           pd.subtotal
+    FROM pedido_detalle pd
+    JOIN pedidos p ON pd.pedido_id = p.id
+    JOIN medicamentos m ON pd.medicamento_id = m.id
     JOIN usuarios u ON p.cliente_id = u.id
-    ORDER BY p.fecha DESC;
+    ORDER BY p.fecha DESC, p.id, pd.id;
 END;
 $$ LANGUAGE plpgsql;
+
+
+
