@@ -71,7 +71,7 @@ namespace adm
 
                 case "Pedidos":
                     grpInventario.Visible = true;
-                    CargarPedidos();
+                    CargarDetallePedidos();
                     break;
             }
         }
@@ -99,13 +99,13 @@ namespace adm
             }
         }
 
-        private void CargarPedidos()
+        private void CargarDetallePedidos()
         {
             try
             {
                 using (var con = Conexion.ObtenerConexion())
                 {
-                    using (var da = new NpgsqlDataAdapter("SELECT * FROM consultar_pedidos()", con))
+                    using (var da = new NpgsqlDataAdapter("SELECT * FROM consultar_detalle_pedidos()", con))
                     {
                         DataTable dt = new DataTable();
                         da.Fill(dt);
@@ -116,7 +116,7 @@ namespace adm
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar pedidos: " + ex.Message);
+                MessageBox.Show("Error al cargar detalle de pedidos: " + ex.Message);
             }
         }
 
