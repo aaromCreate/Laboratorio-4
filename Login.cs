@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using adm;
+using Npgsql;
+using Registro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,11 +54,13 @@ namespace lab4
                                 {
                                     Farmaceutico Farma = new Farmaceutico();
                                     Farma.Show();
+                                    this.Hide();
                                 }
                                 else
                                 {
-                                    Cliente clienteForm = new Cliente(this);
-                                    clienteForm.Show();
+                                    int idDelUsuario = Convert.ToInt32(reader["id"]);
+                                    var formCliente = new Cliente(this, idDelUsuario);
+                                    formCliente.Show();
                                     this.Hide(); // Oculta la ventana Login
                                 }
                             }
@@ -76,7 +80,7 @@ namespace lab4
 
         private void lblregistrar_Click(object sender, EventArgs e)
         {
-            Registro reg = new Registro();
+            Reg reg = new Reg();
             reg.Show();
         }
     }

@@ -14,12 +14,13 @@ namespace lab4
     public partial class Cliente : Form
     {
         private Form loginForm;
-        public Cliente(Form loginFormInstance)
+        public Cliente(Form loginFormInstance, int clienteId)
         {
             InitializeComponent();
             ConfigurarColumnasDataGridView();
             CargarInventario();
             loginForm = loginFormInstance;
+            this.ClienteId = clienteId;
 
 
         }
@@ -147,12 +148,12 @@ private void dgvInventario_CellContentClick(object sender, DataGridViewCellEvent
             {
                 foreach (PedidoItem item in listBoxCarrito.Items)
                 {
-                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT registrar_pedido(@p_cliente, @p_medicamento, @p_cantidad)", conexion))
+                    using (NpgsqlCommand cmd = new NpgsqlCommand("SELECT  registrar_pedido(@p_cliente, @p_medicamento, @p_cantidad)", conexion))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@p_cliente", clienteId);
-                        cmd.Parameters.AddWithValue("@p_medicamento", item.IdMedicamento);
-                        cmd.Parameters.AddWithValue("@p_cantidad", item.Cantidad);
+                        cmd.Parameters.AddWithValue("p_cliente", clienteId);
+                        cmd.Parameters.AddWithValue("p_medicamento", item.IdMedicamento);
+                        cmd.Parameters.AddWithValue("p_cantidad", item.Cantidad);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -165,8 +166,9 @@ private void dgvInventario_CellContentClick(object sender, DataGridViewCellEvent
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            Login login = new Login();
+            login.Show(); // Muestra Login nuevamente
             this.Close(); // Cierra Cliente
-            loginForm.Show(); // Muestra Login nuevamente
         }
 
 
