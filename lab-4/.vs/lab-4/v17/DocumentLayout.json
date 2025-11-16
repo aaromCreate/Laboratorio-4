@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|c:\\users\\gusdo\\onedrive\\escritorio\\lab-4\\lab-4\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\reg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\reg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\farmaceutico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{13C4B10D-3F89-4A38-80A0-38407DB79903}|lab-4\\lab-4.csproj|solutionrelative:lab-4\\farmaceutico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Login.cs",
+              "RelativeDocumentMoniker": "lab-4\\Login.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "lab-4\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:31:19.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Reg.cs",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Reg.cs",
+              "RelativeDocumentMoniker": "lab-4\\Reg.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Reg.cs",
+              "RelativeToolTip": "lab-4\\Reg.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:30:29.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Program.cs",
+              "RelativeDocumentMoniker": "lab-4\\Program.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Program.cs",
+              "RelativeToolTip": "lab-4\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:30:16.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Cliente.cs",
+              "RelativeDocumentMoniker": "lab-4\\Cliente.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Cliente.cs",
+              "RelativeToolTip": "lab-4\\Cliente.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:30:09.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Conexion.cs",
+              "RelativeDocumentMoniker": "lab-4\\Conexion.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Conexion.cs",
+              "RelativeToolTip": "lab-4\\Conexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:30:06.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Farmaceutico.cs",
+              "DocumentMoniker": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Farmaceutico.cs",
+              "RelativeDocumentMoniker": "lab-4\\Farmaceutico.cs",
+              "ToolTip": "C:\\Users\\gusdo\\OneDrive\\Escritorio\\lab-4\\lab-4\\Farmaceutico.cs",
+              "RelativeToolTip": "lab-4\\Farmaceutico.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T04:30:02.701Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
