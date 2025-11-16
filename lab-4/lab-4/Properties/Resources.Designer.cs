@@ -59,5 +59,55 @@ namespace lab_4.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Admin {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Admin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Admin1 {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Admin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Cliente {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Cliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Login {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fondo_Registro {
+            get {
+                object obj = ResourceManager.GetObject("Fondo_Registro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -145,5 +145,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Fondo_Login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Fondo_Registro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Fondo_Cliente.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Fondo_Admin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

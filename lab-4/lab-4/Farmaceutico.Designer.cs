@@ -31,7 +31,6 @@
             this.lblBien = new System.Windows.Forms.Label();
             this.cboOpciones = new System.Windows.Forms.ComboBox();
             this.grpInf = new System.Windows.Forms.GroupBox();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.grpEliminar = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblEliminar = new System.Windows.Forms.Label();
@@ -54,34 +53,37 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.txtCanti = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Label_Medicamento = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox_FondoAdmin = new System.Windows.Forms.PictureBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.grpInf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.grpEliminar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
             this.grpInventario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.grpRea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FondoAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBien
             // 
             this.lblBien.AutoSize = true;
-            this.lblBien.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBien.Location = new System.Drawing.Point(314, 33);
+            this.lblBien.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBien.Location = new System.Drawing.Point(338, 22);
             this.lblBien.Name = "lblBien";
-            this.lblBien.Size = new System.Drawing.Size(109, 22);
+            this.lblBien.Size = new System.Drawing.Size(112, 23);
             this.lblBien.TabIndex = 1;
             this.lblBien.Text = "Bienvenido ";
             // 
             // cboOpciones
             // 
-            this.cboOpciones.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboOpciones.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboOpciones.FormattingEnabled = true;
             this.cboOpciones.Location = new System.Drawing.Point(277, 73);
             this.cboOpciones.Name = "cboOpciones";
-            this.cboOpciones.Size = new System.Drawing.Size(225, 26);
+            this.cboOpciones.Size = new System.Drawing.Size(225, 27);
             this.cboOpciones.TabIndex = 7;
             this.cboOpciones.Tag = "";
             this.cboOpciones.Text = "Opciones";
@@ -109,15 +111,6 @@
             this.grpInf.TabStop = false;
             this.grpInf.Text = "Llene los espacios en blancos";
             this.grpInf.Visible = false;
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.pbImagen.Location = new System.Drawing.Point(111, 72);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(140, 50);
-            this.pbImagen.TabIndex = 20;
-            this.pbImagen.TabStop = false;
             // 
             // grpEliminar
             // 
@@ -283,6 +276,7 @@
             // 
             // dgvInventario
             // 
+            this.dgvInventario.AllowUserToAddRows = false;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInventario.Location = new System.Drawing.Point(16, 19);
             this.dgvInventario.Name = "dgvInventario";
@@ -296,7 +290,7 @@
             this.grpRea.Controls.Add(this.btnActualizar);
             this.grpRea.Controls.Add(this.txtCanti);
             this.grpRea.Controls.Add(this.label5);
-            this.grpRea.Controls.Add(this.label1);
+            this.grpRea.Controls.Add(this.Label_Medicamento);
             this.grpRea.Location = new System.Drawing.Point(12, 105);
             this.grpRea.Name = "grpRea";
             this.grpRea.Size = new System.Drawing.Size(802, 127);
@@ -338,26 +332,46 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Cantidad";
             // 
-            // label1
+            // Label_Medicamento
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(107, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 22);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Medicamento";
+            this.Label_Medicamento.AutoSize = true;
+            this.Label_Medicamento.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Medicamento.Location = new System.Drawing.Point(107, 35);
+            this.Label_Medicamento.Name = "Label_Medicamento";
+            this.Label_Medicamento.Size = new System.Drawing.Size(124, 22);
+            this.Label_Medicamento.TabIndex = 11;
+            this.Label_Medicamento.Text = "Medicamento";
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.Location = new System.Drawing.Point(702, 22);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(127, 21);
+            this.btnCerrar.Size = new System.Drawing.Size(127, 44);
             this.btnCerrar.TabIndex = 16;
             this.btnCerrar.Text = "Cerrar Sesion";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // pictureBox_FondoAdmin
+            // 
+            this.pictureBox_FondoAdmin.Image = global::lab_4.Properties.Resources.Fondo_Admin1;
+            this.pictureBox_FondoAdmin.Location = new System.Drawing.Point(-3, -1);
+            this.pictureBox_FondoAdmin.Name = "pictureBox_FondoAdmin";
+            this.pictureBox_FondoAdmin.Size = new System.Drawing.Size(856, 529);
+            this.pictureBox_FondoAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_FondoAdmin.TabIndex = 17;
+            this.pictureBox_FondoAdmin.TabStop = false;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pbImagen.Location = new System.Drawing.Point(111, 72);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(140, 50);
+            this.pbImagen.TabIndex = 20;
+            this.pbImagen.TabStop = false;
             // 
             // Farmaceutico
             // 
@@ -371,12 +385,12 @@
             this.Controls.Add(this.grpInf);
             this.Controls.Add(this.cboOpciones);
             this.Controls.Add(this.lblBien);
+            this.Controls.Add(this.pictureBox_FondoAdmin);
             this.Name = "Farmaceutico";
-            this.Text = "Form1";
+            this.Text = "Administrador";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpInf.ResumeLayout(false);
             this.grpInf.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.grpEliminar.ResumeLayout(false);
             this.grpEliminar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
@@ -384,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.grpRea.ResumeLayout(false);
             this.grpRea.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_FondoAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,10 +431,11 @@
         private System.Windows.Forms.GroupBox grpRea;
         private System.Windows.Forms.TextBox txtCanti;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label_Medicamento;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.TextBox cboMedicamento;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.PictureBox pictureBox_FondoAdmin;
     }
 }
 
